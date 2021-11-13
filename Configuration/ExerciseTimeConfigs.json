@@ -1,0 +1,19 @@
+{
+    "muscular":
+    {
+        "exerciseTimeInSeconds" : 60,
+        "recoveryTimeInSeconds" : 15
+    },
+
+    "cardio":
+    {
+        "exerciseTimeInSeconds" : 60,
+        "recoveryTimeInSeconds" : 15
+    },
+
+    "balance":
+    {
+        "exerciseTimeInSeconds" : 60,
+        "recoveryTimeInSeconds" : 15
+    }
+}

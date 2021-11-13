@@ -1,0 +1,31 @@
+{
+    "muscular":
+    {
+        "chest":["Standard Push-Ups", "Slow PushUps", "Wide PushUps", "Declined PushUps", "Military PushUps", "Diamond PushUps", "DiveBomber PushUps"],
+        "shoulders":["Deep Swimmer Press", "Front & Lateral Harm Raises", "Pike Press"],
+        "biceps":["Curls", "Hammer Curls", "Static Harm Curls", "Twenty-Ones"],
+        "triceps":["Triceps Kick Back", "Dips", "Side Tri-Rise"],
+        "back":["Heavy Pants", "Locomotive"],
+        "core":["Leg Raise", "Sit-Ups", "Russian Twists"],
+        "legs":["Front Lunges", "Side Lounges", "Back Lounge", "Bucket Squats", "Jump Squats", "Curls Squats", "Pistons"],
+        "calfs":["Calfs Raise"]
+    },
+
+    "cardio":
+    {
+        "chest":[],
+        "shoulders":["Arm circles"],
+        "arms":["Arm circles"],
+        "core":["Jumping Jacks", "Mountain Climbers", "Tuck Jumps"],
+        "legs":["High knees"]
+    },
+
+    "balance":
+    {
+        "chest":["Upper Dog"],
+        "shoulders":["Down ward dog"],
+        "arms":["Crane Pose"],
+        "core":["Chair Pose"],
+        "legs":["Warrior I", "Warrior II", "Warrior III", "Tree Pose"]
+    }
+}
