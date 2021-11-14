@@ -5,7 +5,7 @@ class Bag(object):
     
     def __init__(self, max_capacity=70):
         ''' Bag initialization'''
-        
+
         self.max_items_quantity = max_capacity
         self.item_list = []
 
@@ -73,6 +73,18 @@ class Bag(object):
                     raise InsufficientItemError("{} quantity is {}, needed is {}".format(old_item.get_item_type(), item.get_quantity(), old_item.get_quantity()))
 
         raise InsufficientItemError("{} item does exists in the bag".format(old_item.get_item_type()))
+
+    def get_item_by_item_type(self, item_type):
+
+        """
+            Retreive item from bag based on item_type
+        """
+        item = [item for item in self.item_list if item_type in item.item_type]
+
+        if len(item) == 0:
+            return None
+        else:
+            return item[0]
 
     def get_items_bag_quantity(self):
         return sum([i.get_quantity() for i in self.item_list])

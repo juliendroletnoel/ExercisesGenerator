@@ -3,7 +3,7 @@ from Configuration import *
 from ExerciseConfig import ExerciseConfig
 from math import floor
 
-class ExerciseList(object):
+class ExerciseGenerator(object):
 
     def __init__(self):
         ''' Builds a list of exercises based on configuration '''
@@ -32,8 +32,6 @@ class ExerciseList(object):
 
         if len(exercises_based_on_body_part) == 0:
             raise ValueError(body_part_name)
-        for e in exercises_based_on_body_part:
-            print (e.exercise_name)
 
         returned_exercises = []
         used_indexes = []

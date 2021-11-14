@@ -1,10 +1,10 @@
 from ItemType import ItemType
 
-class Item:
+class Item(object):
 
     def __init__(self, itemType, quantity):
         
-        if not isinstance(itemType, ItemType):
+        if not issubclass(itemType, ItemType):
             raise TypeError(itemType)
 
         if not isinstance(quantity, int):
@@ -13,7 +13,7 @@ class Item:
         if quantity <= 0:
             raise ValueError(quantity)
         
-        self.item_type = type(itemType)
+        self.item_type = itemType.__name__.lower()
         self.quantity = quantity
 
     def get_item_type(self):
