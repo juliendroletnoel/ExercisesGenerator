@@ -1,6 +1,6 @@
 import random
 from Configuration import *
-from ExerciseConfig import ExerciseConfig
+from ExerciseTimeConfig import ExerciseTimeConfig
 from math import floor
 
 class ExerciseGenerator(object):
@@ -10,42 +10,25 @@ class ExerciseGenerator(object):
         
         self.__exercises = []
 
-        for json_exercise in exercises_list:
-
-            exercise_type = json_exercise[0]
-            exercise_body_part = json_exercise[1]
-            exercise_name = json_exercise[2]
-
-            # if exercise is already added, pass
-            if exercise_name in [e.exercise_name for e in self.__exercises]:
-                continue
-            
-            exercise_time_config = [e for e in exercises_config_list if e.exercise_config_name == exercise_type][0]
-            exercise = Exercise(exercise_type, exercise_body_part, exercise_name, exercise_time_config)
+        # Muscular execises creation
+        for diff, body, exer in muscular_exercises:
+            exercise_time_config = [e for e in exercises_time_config_list if e.exercise_config_name == 'muscular'][0]    
+            exercise = MuscularExercise('muscular', diff, exercise_time_config, body, exer)
             self.__exercises.append(exercise)
 
-    def get_exercises_based_on_body_part(self, body_part_name):
-        body_part_name = body_part_name.lower()
+        # Cardio exercises creation
+        for diff, body_section, exer in cardio_exercises:
+            exercise_time_config = [e for e in exercises_time_config_list if e.exercise_config_name == 'cardio'][0]    
+            exercise = CardioExercise('cardio', diff, exercise_time_config, body_section, exer)
+            self.__exercises.append(exercise)
 
-        exercises_based_on_body_part = [exercise for exercise in self.__exercises \
-                                        if exercise.body_part_name == body_part_name]
+        # Balance exercises
+        for diff, exer in balance_exercises:
+            exercise_time_config = [e for e in exercises_time_config_list if e.exercise_config_name == 'balance'][0]    
+            exercise = BalanceExercise('Balance', diff, exercise_time_config, exer)
+            self.__exercises.append(exercise)
 
-        if len(exercises_based_on_body_part) == 0:
-            raise ValueError(body_part_name)
-
-        returned_exercises = []
-        used_indexes = []
-        while len(returned_exercises) < 3 and len(used_indexes) < len(exercises_based_on_body_part):
-            random_index = random.randint(0, len(exercises_based_on_body_part)-1)
-            if random_index in used_indexes:
-                continue
-
-            used_indexes.append(random_index)
-            returned_exercises.append(exercises_based_on_body_part[random_index])
-
-        return returned_exercises
-
-    def get_exercises_based_on_exercise_type_name(self, exercise_type_name):
+    def get_exercises_based_on_exercise_type_name(self, exercise_type_name, nb_exercises=3):
         exercise_type_name = exercise_type_name.lower()
     
         exercises_based_on_type = [exercise for exercise in self.__exercises \
@@ -56,7 +39,7 @@ class ExerciseGenerator(object):
 
         returned_exercises = []
         used_indexes = []
-        while len(returned_exercises) < 3 and len(used_indexes) < len(exercises_based_on_type):
+        while len(returned_exercises) < nb_exercises and len(used_indexes) < len(exercises_based_on_type):
             random_index = random.randint(0, len(exercises_based_on_type)-1)
             if random_index in used_indexes:
                 continue
@@ -66,7 +49,7 @@ class ExerciseGenerator(object):
 
         return returned_exercises
 
-    def get_exercises_based_on_body_part_and_type(self, exercise_type_name, body_part_name):
+    def get_exercises_based_on_body_part_and_type(self, exercise_type_name, body_part_name, nb_exercises=3):
         exercise_type_name = exercise_type_name.lower()
         body_part_name = body_part_name.lower()
 
@@ -76,7 +59,7 @@ class ExerciseGenerator(object):
 
         returned_exercises = []
         used_indexes = []
-        while len(returned_exercises) < 3 and len(used_indexes) < len(exercises_based_filter):
+        while len(returned_exercises) < nb_exercises and len(used_indexes) < len(exercises_based_filter):
             random_index = random.randint(0, len(exercises_based_filter)-1)
             if random_index in used_indexes:
                 continue
@@ -87,18 +70,34 @@ class ExerciseGenerator(object):
         return returned_exercises
 
 class Exercise(object):
-    def __init__(self, exercise_type_name, body_part_name, exercise_name, exercise_config):
+    def __init__(self, exercise_type_name, difficulty, exercise_time_config):
 
-        if not isinstance(exercise_config, ExerciseConfig):
-            raise TypeError(exercise_config)
+        if not isinstance(exercise_time_config, ExerciseTimeConfig):
+            raise TypeError(exercise_time_config)
 
         self.exercise_type_name = exercise_type_name
-        self.exercise_config = exercise_config
+        self.__exercise_time_config = exercise_time_config
+        self.difficulty_name = str(difficulty).strip().lower()
+
+    def get_exercise_time_in_seconds(self):
+        return self.__exercise_time_config.exercise_time_in_second
+
+    def get_recovery_time_in_seconds(self):
+        return self.__exercise_time_config.recovery_time_in_second
+
+class MuscularExercise(Exercise):
+    def __init__(self, exercise_type_name, difficulty, exercise_time_config, body_part_name, exercise_name):
+        super().__init__(exercise_type_name, difficulty, exercise_time_config)
         self.body_part_name = str(body_part_name).strip().lower()
         self.exercise_name = str(exercise_name).strip().lower()
 
-    def get_exercise_time_in_seconds(self):
-        return self.exercise_config.exercise_time_in_second
+class CardioExercise(Exercise):
+    def __init__(self, exercise_type_name, difficulty, exercise_time_config, body_section_name, exercise_name):
+        super().__init__(exercise_type_name, difficulty, exercise_time_config)
+        self.body_part_name = str(body_section_name).strip().lower()
+        self.exercise_name = str(exercise_name).strip().lower()
 
-    def get_recovery_time_in_seconds(self):
-        return self.exercise_config.recovery_time_in_second
+class BalanceExercise(Exercise):
+    def __init__(self, exercise_type_name, difficulty, exercise_time_config, balance_pose_name):
+        super().__init__(exercise_type_name, difficulty, exercise_time_config)
+        self.exercise_name = str(balance_pose_name).strip().lower()
