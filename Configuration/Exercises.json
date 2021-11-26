@@ -1,31 +1,61 @@
 {
     "muscular":
     {
-        "chest":["Standard Push-Ups", "Slow PushUps", "Wide PushUps", "Declined PushUps", "Military PushUps", "Diamond PushUps", "DiveBomber PushUps"],
-        "shoulders":["Deep Swimmer Press", "Front & Lateral Harm Raises", "Pike Press"],
-        "biceps":["Curls", "Hammer Curls", "Static Harm Curls", "Twenty-Ones"],
-        "triceps":["Triceps Kick Back", "Dips", "Side Tri-Rise"],
-        "back":["Heavy Pants", "Locomotive"],
-        "core":["Leg Raise", "Sit-Ups", "Russian Twists"],
-        "legs":["Front Lunges", "Side Lounges", "Back Lounge", "Bucket Squats", "Jump Squats", "Curls Squats", "Pistons"],
-        "calfs":["Calfs Raise"]
+        "beginner":
+        {
+            "chest": ["Standard Push-Ups", "Wide Stance Push-Ups"],
+            "shoulders": ["Arm Circles", "Front & Lateral Harm Raises", "Upright Rows"],
+            "biceps": ["Hammer Curls", "Corscrew Curls", "In-Out Biceps Curls", "In-Out Hammer Curls"],
+            "triceps": ["Triceps Kick Back"],
+            "back": ["Lawnmowers"],
+            "core": ["Crunchs"],
+            "legs": ["Lunges", "Calfs Raise"]
+        },
+        "intermediate":
+        {
+            "chest": ["Military Push-Ups", "Declined Push-Ups", "Fly Push-Ups", "Side Salutation Push-Ups"],
+            "shoulders":["Y-Presses", "Pikes Press", "Shoulder Presses"],
+            "biceps": ["Twenty-Ones", "Static Arm Curls", "Biceps Curls"],
+            "triceps": ["Chair Dips", "Throw the Bomb!"],
+            "back": ["Heavy Pants", "Congdon Locomotives"],
+            "core": ["Legs Raise", "Russian Twists"],
+            "legs": ["Run in circle (2 directions)", "Tippie Toes Lunges", "Squats"]
+        },
+        "beast":
+        {
+            "chest": ["Diamond Push-Ups", "Slow Motion Push-Ups", "SpiderMan PushUps"],
+            "shoulders":["ScareCrow Shoulder Flys", "Deep Swimmer Press", "Pour Flys"],
+            "biceps": ["Crunch Cohen Curls"],
+            "triceps": ["Flip-Grip Triceps Kick-Back", "Side Tri-Rise"],
+            "back": ["Back Flys", "SuperMan"],
+            "core": ["Top-Bottom Plank", "Up-Down Boat Pose"],
+            "legs": ["Two direction Hot Foot", "Narrow-Wide Squats", "Prayer Squats"]
+        }
     },
 
     "cardio":
     {
-        "chest":[],
-        "shoulders":["Arm circles"],
-        "arms":["Arm circles"],
-        "core":["Jumping Jacks", "Mountain Climbers", "Tuck Jumps"],
-        "legs":["High knees"]
+        "beginner":
+        {
+            "upperbody":["Jumping Jacks", ""],
+            "lowerbody":["High knees", "Circle Kicks"]
+        },
+        "advanced":
+        {
+            "upperbody":[],
+            "lowerbody":["Jumps Squats", "Mountain Climbers"]
+        },
+        "beast":
+        {
+            "upperbody":["Jab, Cross, Hook, Upper-Cut", "Burpees"],
+            "lowerbody":["Tuck Jumps", "Running Stance Jump Squats"]
+        }
     },
 
     "balance":
     {
-        "chest":["Upper Dog"],
-        "shoulders":["Down ward dog"],
-        "arms":["Crane Pose"],
-        "core":["Chair Pose"],
-        "legs":["Warrior I", "Warrior II", "Warrior III", "Tree Pose"]
+        "beginner": ["Peaceful Warrior", "Downward Dog"],
+        "advanced": ["Warrior 1", "Warrior 2", "Warrior 3", "Triangle Pose", "Chair Pose"],
+        "beast": ["Planked Tight Butt", "Three Legged Dog", "Boat Pose", "Crane"]
     }
 }

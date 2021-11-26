@@ -1,4 +1,4 @@
-class ExerciseConfig(object):
+class ExerciseTimeConfig(object):
     def __init__(self, exercise_config_name, exercise_time_in_second, recovery_time_in_second):
         
         try:

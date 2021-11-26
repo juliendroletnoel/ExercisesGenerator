@@ -1,7 +1,7 @@
 import os.path
 import json
 import time
-from ExerciseConfig import ExerciseConfig
+from ExerciseTimeConfig import ExerciseTimeConfig
 
 print ('Configuration module initialization')
 
@@ -17,14 +17,15 @@ __music_folder_name = os.path.join('music')
 ## List of challenge (Order of the challenge in the list is the same when displayed)
 
 # Exercises list (Exercise Type, Body Part, Exercise name)
-j = json.load(open(__exercises_file_name))
-exercises_list = [(key, body, exercise) for key in j.keys() for body in j[key] for exercise in j[key][body]]
-exercises_type_list = [exercise_type for exercise_type in j.keys()]
+j2 = json.load(open(__exercises_file_name))
+muscular_exercises = [(diff, body, exer) for diff in j2['muscular'].keys() for body in j2['muscular'][diff].keys() for exer in j2['muscular'][diff][body]]
+cardio_exercises = [(diff, body, exer) for diff in j2['cardio'].keys() for body in j2['cardio'][diff].keys() for exer in j2['cardio'][diff][body]]
+balance_exercises = [(diff, body) for diff in j2['balance'].keys() for body in j2['balance'][diff]]
 
-# Exercises configuration list
+# Exercises time configuration list
 j = json.load(open(__exercises_time_config_file_name))
 json_exercise_config_list = [(key.lower(), [j[key][time] for time in j[key]]) for key in j.keys()]
-exercises_config_list = [ExerciseConfig(e[0], e[1][0], e[1][1]) for e in json_exercise_config_list]
+exercises_time_config_list = [ExerciseTimeConfig(name, ex_time, re_time) for name, (ex_time, re_time) in json_exercise_config_list]
 
  # File serialization actions
 actions = ["new", "load"]
@@ -41,7 +42,7 @@ for root, dir, music_file_names in os.walk(__music_folder_name):
 
     current_sub_folder = os.path.split(root)[-1]
     current_sub_folder = current_sub_folder.lower()
-    if current_sub_folder in exercises_type_list:
+    if current_sub_folder in ('muscular', 'cardio', 'balance'):
         music_tuple = (current_sub_folder, [os.path.join(root, music_file_name) for music_file_name in music_file_names])
         music_files.append(music_tuple)
 
