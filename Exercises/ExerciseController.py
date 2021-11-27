@@ -29,5 +29,5 @@ class ExerciseController (object):
             raise e
         
     def remove_exercise_from_file(self, exercise_name):
-        
+        pass
 

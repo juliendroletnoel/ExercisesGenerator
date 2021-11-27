@@ -40,7 +40,7 @@
             "upperbody":["Jumping Jacks", ""],
             "lowerbody":["High knees", "Circle Kicks"]
         },
-        "advanced":
+        "intermediate":
         {
             "upperbody":[],
             "lowerbody":["Jumps Squats", "Mountain Climbers"]
@@ -55,7 +55,7 @@
     "balance":
     {
         "beginner": ["Peaceful Warrior", "Downward Dog"],
-        "advanced": ["Warrior 1", "Warrior 2", "Warrior 3", "Triangle Pose", "Chair Pose"],
+        "intermediate": ["Warrior 1", "Warrior 2", "Warrior 3", "Triangle Pose", "Chair Pose"],
         "beast": ["Planked Tight Butt", "Three Legged Dog", "Boat Pose", "Crane"]
     }
 }
