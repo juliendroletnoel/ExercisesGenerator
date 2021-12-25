@@ -34,6 +34,10 @@ Hache               10      10          +2 pour nourriture
 Corde               10      10          +2 pour puiser eau
 Toile               20      20
 
+
+TestPyPi Api Token to distribute package in test environment
+pypi-AgENdGVzdC5weXBpLm9yZwIkMWFkOTBhMGUtZDYwNi00ZTA0LThmZDgtNzdmOGE5MzQ3NTNlAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiAJg_OhgkTxvHbPrTr-RHRYEt4T5osfrlZqxLkZUW5mxw
+
 Radeau              Eau     Nourriture  Exercice
 Couper tronc arbre  20      20          1:30
 Monter radeau       20      20          1:30
