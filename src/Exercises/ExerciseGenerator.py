@@ -43,16 +43,16 @@ class ExerciseGenerator(object):
             exercises = ((body, exer) for body in m.keys() for exer in m[body])
             exercise_time_config = [e for e in exercises_time_config_list if e.exercise_config_name == exercise_type_name][0] 
 
-            available_body_part = []
+            available_body_parts = []
       
             for body_part, exercise_name in exercises:
                 exercise = Exercise(exercise_type_name, exercise_time_config, body_part, exercise_name)
                 self.__exercises.append(exercise)
 
-                available_body_part.append(body_part)
+                available_body_parts.append(body_part)
 
-            self.__available_body_parts_name[exercise_type_name] = available_body_part
-            
+            self.__available_body_parts_name[exercise_type_name] = available_body_parts
+
         # Muscular Ranges - Not used yet
         json_file = json.load(open(__muscular_range_file_name))
         m = json_file['muscular_repetitions_ranges']
@@ -72,14 +72,17 @@ class ExerciseGenerator(object):
         
         exercises_based_filter = [exercise for exercise in self.__exercises \
                                   if exercise.is_same_exercise_type(exercise_type_name)]
-
+        
         if len(exercises_based_filter) == 0:
             raise ValueError(exercise_type_name)
             
         if len(body_part_name) > 0:
-            exercises_based_filter = [exercise for exercise in self.__exercises \
+            exercises_based_filter = [exercise for exercise in exercises_based_filter \
                                         if exercise.is_same_body_part_name(body_part_name)]
         
+        if (len(exercises_based_filter) == 0):
+            raise ValueError(body_part_name)
+
         returned_exercises = []
         used_indexes = []
         while len(returned_exercises) < nb_exercises and len(used_indexes) < len(exercises_based_filter):
