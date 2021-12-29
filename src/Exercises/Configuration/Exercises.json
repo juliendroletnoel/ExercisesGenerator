@@ -1,0 +1,25 @@
+{
+    "muscular":
+    {
+            "chest": ["Standard Push-Ups", "Wide Stance Push-Ups", "Military Push-Ups", "Declined Push-Ups", "Fly Push-Ups", "Side Salutation Push-Ups", "Diamond Push-Ups", "Slow Motion Push-Ups", "SpiderMan PushUps"],
+            "shoulders": ["Arm Circles", "Front & Lateral Harm Raises", "Upright Rows", "Y-Presses", "Pikes Press", "Shoulder Presses", "ScareCrow Shoulder Flys", "Deep Swimmer Press", "Pour Flys"],
+            "biceps": ["Hammer Curls", "Corscrew Curls", "In-Out Biceps Curls", "In-Out Hammer Curls", "Twenty-Ones", "Static Arm Curls", "Biceps Curls", "Crunch Cohen Curls"],
+            "triceps": ["Triceps Kick Back", "Chair Dips", "Throw the Bomb!", "Flip-Grip Triceps Kick-Back", "Side Tri-Rise"],
+            "back": ["Lawnmowers","Heavy Pants", "Congdon Locomotives", "Back Flys", "SuperMan"],
+            "core": ["Crunchs", "Legs Raise", "Russian Twists", "Top-Bottom Plank", "Up-Down Boat Pose"],
+            "legs": ["Lunges", "Calfs Raise", "Run in circle (2 directions)", "Tippie Toes Lunges", "Squats", "Two direction Hot Foot", "Narrow-Wide Squats", "Prayer Squats"]
+    },
+
+    "cardio":
+    {
+        "upperbody":["Jumping Jacks", "Jab, Cross, Hook, Upper-Cut", "Burpees"],
+        "lowerbody":["High knees", "Circle Kicks", "Jumps Squats", "Mountain Climbers", "Tuck Jumps", "Running Stance Jump Squats"]
+    },
+
+    "balance":
+    {
+        "upperbody" : ["Crane"],
+        "lowerbody" : ["Warrior I", "Warrior II", "Warrior III", "Peacefull Warrior", "Triangle", "Chair Pose", "Boat Pose"],
+        "fullbody"  : ["Planked Tight Butt", "Downsward Dog"]
+    }
+}
