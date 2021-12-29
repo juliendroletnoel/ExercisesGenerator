@@ -1,6 +1,6 @@
 from Exercises.ExerciseTimeConfig import ExerciseTimeConfig
 
-class __Exercise(object):
+class Exercise(object):
     def __init__(self, exercise_type_name, exercise_time_config, body_part_name, exercise_name):
 
         if not isinstance(exercise_time_config, ExerciseTimeConfig):
@@ -27,15 +27,3 @@ class __Exercise(object):
     def is_same_body_part_name(self, body_part_name):
         body_part_name = body_part_name.strip().lower()
         return self.__body_part_name == body_part_name
-        
-class MuscularExercise(__Exercise):
-    def __init__(self, exercise_time_config, body_part_name, exercise_name):
-        super().__init__('muscular', exercise_time_config, body_part_name, exercise_name)
-
-class CardioExercise(__Exercise):
-    def __init__(self, exercise_time_config, body_section_name, exercise_name):
-        super().__init__('cardio', exercise_time_config, body_section_name, exercise_name)
-
-class BalanceExercise(__Exercise):
-    def __init__(self, exercise_time_config, body_section_name, balance_pose_name):
-        super().__init__('balance', exercise_time_config, body_section_name, balance_pose_name)
